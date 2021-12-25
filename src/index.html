@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    </style>
+
+    <title>Election Results</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+  <style>
+    h1 {text-align: center;}
+  </style>
+
+    <!-- Navbar -->
+    <div class="w3-top" id="header">
+      <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+        <a href="#" class="w3-bar-item w3-button w3-theme-l1" onclick="open_main()">Election Results</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white" onclick="open_abt()">About</a>
+      </div>
+    </div>
+
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large" id="altheader">
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white" onclick="open_main()">Election Results</a>
+      <a href="#" class="w3-bar-item w3-button w3-theme-l1" onclick="open_abt()">About</a>
+    </div>
+
+    <div class="container" id="main" style="width: 650px; margin-top: 50px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="w3-text-teal">Election Results</h1>
+          <hr/>
+          <br/>
+          <div id="loader">
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content" style="display: none;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Votes</th>
+                </tr>
+              </thead>
+              <tbody id="candidatesResults">
+              </tbody>
+            </table>
+            <hr/>
+            <form onSubmit="App.castVote(); return false;">
+              <div class="form-group">
+                <label for="candidatesSelect">Select Candidate</label>
+                <select class="form-control" id="candidatesSelect">
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Vote</button>
+              <hr />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="abt" style="width: 650px; margin-top: 50px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="w3-text-teal">Election Results</h1>
+          <hr/>
+          <br/>
+          <div id="abtpage">
+            <p id="aboutInfo" class="text-center">About Page</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="final" style="width: 650px; margin-top: 50px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="w3-text-teal">Final Results</h1>
+          <hr/>
+          <br/>
+          <div id="results" style="display: none;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Votes</th>
+                </tr>
+              </thead>
+              <tbody id="finalResults">
+              </tbody>
+            </table>
+            <hr/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var header = document.getElementById("header");
+
+      var finalPage = $("#final");
+      finalPage.hide();
+
+      function open_main() {
+        var main = $("#main");
+        var abt = $("#abt");
+        var alt = $("#altheader");
+        var finalPage = $("#final");
+        finalPage.hide();
+        abt.hide();
+        main.show();
+        alt.hide();
+      }
+
+      function open_abt() {
+        var main = $("#main");
+        var abt = $("#abt");
+        var alt = $("#altheader");
+        var finalPage = $("#final");
+        finalPage.hide();
+        main.hide();
+        abt.show();
+        alt.show();
+      }
+
+    </script>
+
+    <footer id="myFooter">
+      <div class="w3-container w3-theme-l2 w3-padding-32" style="position: absolute; bottom: 0; width: 100%; height: 2.5rem;">
+        <h4 id="accountAddress" class="text-center"></h4>
+      </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
